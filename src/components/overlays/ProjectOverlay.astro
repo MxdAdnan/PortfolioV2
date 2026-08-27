@@ -1,0 +1,50 @@
+---
+/* Markup ported verbatim from "Adnan Main Portfolio.html" lines 5804-5848.
+   Class names, ids and data-* attributes are load-bearing for the ported
+   scripts in src/scripts -- do not rename. */
+---
+<!-- Immersive project detail -->
+<div class="project-overlay" id="projectOverlay" role="dialog" aria-modal="true" aria-labelledby="overlayTitle" aria-hidden="true">
+  <div class="overlay-shell">
+    <div class="overlay-top">
+      <span class="overlay-index" id="overlayIndex">Project</span>
+      <button class="overlay-close" id="overlayClose" type="button" aria-label="Close project">×</button>
+    </div>
+    <div class="overlay-content">
+      <div class="overlay-gallery">
+        <div class="gallery-main" id="galleryMain"></div>
+        <div class="gallery-strip" id="galleryStrip" aria-label="Project evidence gallery"></div>
+        <div class="gallery-metrics" id="galleryMetrics" hidden></div>
+        <p class="gallery-caption" id="galleryCaption"></p><p class="unsplash-note" id="unsplashNote" hidden>Reference photography from Unsplash. Replace with actual project evidence for the final portfolio.</p>
+      </div>
+      <div class="overlay-info">
+        <div class="overlay-category" id="overlayCategory"></div>
+        <h2 id="overlayTitle"></h2>
+        <p id="overlayDescription"></p>
+
+        <div class="detail-grid">
+          <div class="detail-item"><small>Industry</small><strong id="overlayIndustry"></strong></div>
+          <div class="detail-item"><small>Platform</small><strong id="overlayPlatform"></strong></div>
+          <div class="detail-item"><small>Year</small><strong id="overlayYear"></strong></div>
+          <div class="detail-item"><small>Role</small><strong id="overlayRole"></strong></div>
+        </div>
+
+        <div class="detail-block">
+          <h3>Objective</h3>
+          <p id="overlayObjective"></p>
+        </div>
+        <div class="detail-block">
+          <h3>Execution</h3>
+          <p id="overlayExecution"></p>
+        </div>
+
+        <div class="evidence-note">
+          Project evidence is presented only where it is available and verifiable.
+          No performance metric is invented for this archive.
+        </div>
+
+        <a class="live-link" id="overlayLive" href="#" target="_blank" rel="noopener" hidden>View live project ↗</a>
+      </div>
+    </div>
+  </div>
+</div>

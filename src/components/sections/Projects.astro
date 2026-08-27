@@ -1,0 +1,61 @@
+---
+/* Markup ported verbatim from "Adnan Main Portfolio.html" lines 5725-5780.
+   Class names, ids and data-* attributes are load-bearing for the ported
+   scripts in src/scripts -- do not rename. */
+---
+<!-- ============ PROJECTS ARCHIVE ============ -->
+<section class="projects" id="projects-overview" data-io="once" data-io-threshold="0.12" data-io-safety="2500" aria-labelledby="projects-title">
+  <div class="projects__noise" aria-hidden="true"></div>
+  <div class="projects__inner">
+
+    <header class="projects__intro">
+      <div class="reveal">
+        <p class="kicker">Projects Overview</p>
+        <h1 id="projects-title">Explore the <span>work.</span></h1>
+      </div>
+      <p class="projects__lede reveal">
+        A visual archive of digital marketing, paid media, SEO, social campaigns,
+        websites and B2B technology marketing work — built around execution,
+        evidence and measurable outcomes.
+      </p>
+    </header>
+
+    
+    <div class="archive">
+      <aside class="filters" aria-label="Project filters">
+        <div class="filters__head">
+          <h2 class="filters__title">Filter archive</h2>
+          <span class="filter-count" id="sidebarCount">36 projects</span>
+        </div>
+
+        <div class="filter-group">
+          <h3 class="filter-group__title">Services</h3>
+          <div class="filter-list" id="serviceFilters"></div>
+        </div>
+
+        <button class="filters__reset" id="clearFilters" type="button">Reset filters</button>
+      </aside>
+
+      <main class="archive-main">
+        <div class="archive-toolbar">
+          <div class="project-count" id="projectCount" aria-live="polite"></div>
+          <button class="mobile-filter" id="mobileFilterOpen" type="button">Filter Projects</button>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid"></div>
+
+        <nav class="archive-pagination" id="archivePagination" aria-label="Projects pagination"></nav>
+
+        <div class="load-more-wrap">
+          <button class="load-more" id="loadMore" type="button">Load More Projects</button>
+        </div>
+
+        <div class="empty-state" id="emptyState">
+          <strong>No projects match these filters.</strong>
+          <span>Try another category.</span>
+          <button class="filters__reset" id="emptyReset" type="button">View All Projects</button>
+        </div>
+      </main>
+    </div>
+  </div>
+</section>

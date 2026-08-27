@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.astro/
+
+# Build/OS noise
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+
+# Intermediate migration artifact: a 417KB copy of the original HTML with the
+# base64 payloads swapped for /assets/ paths. Regenerate with `npm run extract`
+# if the original single-file portfolio is ever re-migrated.
+scripts/portfolio-rewritten.html
+
+# Local dev-server config: contains an absolute path to this machine's node.exe
+.claude/

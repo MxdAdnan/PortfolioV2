@@ -1,0 +1,234 @@
+---
+/* Markup ported verbatim from "Adnan Main Portfolio.html" lines 6931-7159.
+   Class names, ids and data-* attributes are load-bearing for the ported
+   scripts in src/scripts -- do not rename. */
+---
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact-form" aria-labelledby="contact-title">
+  <div class="contact__inner">
+
+    <header class="contact__header">
+      <div>
+        <div class="contact__eyebrow">10 &nbsp; CONTACT</div>
+        <h1 class="contact__title" id="contact-title">
+          Let's start<br><span>something.</span>
+        </h1>
+      </div>
+
+      <p class="contact__intro">
+        Have a project, campaign, website or marketing challenge in mind?
+        Send the details and start the conversation.
+      </p>
+    </header>
+
+    <div class="contact__layout">
+
+      <!-- CONTACT INFORMATION -->
+      <aside class="contact__info">
+        <div class="contact__info-inner">
+
+          <div class="contact__info-kicker">
+            GET IN TOUCH
+          </div>
+
+          <h2>
+            Let's turn the<br>
+            <span>idea into action.</span>
+          </h2>
+
+          <p class="contact__info-copy">
+            Tell me what you are building, what is not working, or where you want
+            to go next. Keep it simple — the form on the right is all I need to start.
+          </p>
+
+          <div class="contact__details">
+
+            <div class="contact__detail">
+              <span class="contact__detail-label">Email</span>
+              <a href="mailto:mohamedadnandxb07@gmail.com">
+                mohamedadnandxb07@gmail.com
+              </a>
+            </div>
+
+            <div class="contact__detail">
+              <span class="contact__detail-label">Location</span>
+              <span>Dubai, UAE</span>
+            </div>
+
+          </div>
+
+          <div class="contact__socials">
+
+            <a
+              class="contact__social"
+              href="https://www.linkedin.com/in/md-adnan12"
+              target="_blank"
+              rel="noopener noreferrer">
+              LinkedIn
+            </a>
+
+            <a
+              class="contact__social"
+              href="https://github.com/MxdAdnan"
+              target="_blank"
+              rel="noopener noreferrer">
+              GitHub
+            </a>
+
+          </div>
+
+          <!-- Place your actual PDF at this path on the live site. -->
+          <a
+            class="contact__resume"
+            href="Mohammed Adnan Resume.pdf"
+            download>
+            DOWNLOAD MY RESUME
+          </a>
+
+        </div>
+      </aside>
+
+
+      <!-- CONTACT FORM -->
+      <div class="contact__form-wrap">
+
+        <form
+          class="contact__form"
+          id="contactForm"
+          novalidate>
+
+          <div class="contact__form-grid">
+
+            <div class="contact__field">
+              <label for="contactName">
+                Full Name
+              </label>
+
+              <input
+                id="contactName"
+                name="name"
+                type="text"
+                autocomplete="name"
+                placeholder="Your full name"
+                aria-describedby="contactNameError"
+                required>
+
+              <div
+                class="contact__error"
+                id="contactNameError"
+                aria-live="polite">
+              </div>
+            </div>
+
+            <div class="contact__field">
+              <label for="contactEmail">
+                Email Address
+              </label>
+
+              <input
+                id="contactEmail"
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder="you@example.com"
+                aria-describedby="contactEmailError"
+                required>
+
+              <div
+                class="contact__error"
+                id="contactEmailError"
+                aria-live="polite">
+              </div>
+            </div>
+
+          </div>
+
+          <div class="contact__form-grid">
+
+            <div class="contact__field">
+              <label for="contactCompany">
+                Company / Organization
+              </label>
+
+              <input
+                id="contactCompany"
+                name="company"
+                type="text"
+                autocomplete="organization"
+                placeholder="Company name"
+                aria-describedby="contactCompanyError"
+                required>
+
+              <div
+                class="contact__error"
+                id="contactCompanyError"
+                aria-live="polite">
+              </div>
+            </div>
+
+            <div class="contact__field">
+              <label for="contactSubject">
+                Subject
+              </label>
+
+              <input
+                id="contactSubject"
+                name="subject"
+                type="text"
+                placeholder="What can I help with?"
+                aria-describedby="contactSubjectError"
+                required>
+
+              <div
+                class="contact__error"
+                id="contactSubjectError"
+                aria-live="polite">
+              </div>
+            </div>
+
+          </div>
+
+          <div class="contact__field">
+            <label for="contactMessage">
+              Message
+            </label>
+
+            <textarea
+              id="contactMessage"
+              name="message"
+              placeholder="Tell me briefly about the project or challenge."
+              aria-describedby="contactMessageError"
+              required></textarea>
+
+            <div
+              class="contact__error"
+              id="contactMessageError"
+              aria-live="polite">
+            </div>
+          </div>
+
+          <button
+            class="contact__submit"
+            type="submit"
+            id="contactSubmit">
+            SEND MESSAGE
+          </button>
+
+          <div
+            class="contact__status"
+            id="contactStatus"
+            role="status"
+            aria-live="polite">
+          </div>
+
+          <p class="contact__hint">
+            All fields are required. Your information is used only to respond to this enquiry.
+          </p>
+
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+</section>

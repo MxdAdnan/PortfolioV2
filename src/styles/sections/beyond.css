@@ -1,0 +1,375 @@
+/* Ported verbatim from "Adnan Main Portfolio.html" lines 4161-4533.
+   Do not reformat or rename tokens. */
+/* ============================================================
+   BEYOND THE PORTFOLIO
+   ============================================================ */
+.btp-section a:focus-visible,
+    .btp-card:focus-visible{
+      outline:2px solid var(--punch-red);
+      outline-offset:3px;
+      border-radius:8px;
+    }
+
+    /* =========================================================
+       SECTION
+       ========================================================= */
+    .btp-section{
+      position:relative;
+      isolation:isolate;
+      overflow:hidden;
+      padding:clamp(64px,7vw,110px) clamp(18px,5vw,80px);
+      background:
+        radial-gradient(circle at 86% 12%,rgba(141,153,174,.10),transparent 25%),
+        var(--platinum);
+    }
+    .btp-section::before{
+      content:"";
+      position:absolute;
+      width:620px;height:620px;
+      right:-315px;top:-235px;
+      border:1px solid rgba(43,45,66,.07);
+      border-radius:50%;
+      pointer-events:none;
+    }
+    .btp-inner{
+      position:relative;
+      z-index:1;
+      width:min(1380px,100%);
+      margin:0 auto;
+    }
+
+    /* =========================================================
+       HEADER
+       ========================================================= */
+    .btp-header{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) minmax(280px,430px);
+      gap:clamp(30px,8vw,110px);
+      align-items:end;
+      margin-bottom:clamp(34px,5vw,58px);
+    }
+    .btp-eyebrow{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:18px;
+      color:var(--punch-red);
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+    .btp-eyebrow::before{
+      content:"";
+      width:28px;height:2px;
+      background:var(--punch-red);
+    }
+    .btp-title{
+      margin:0;
+      font-size:clamp(48px,7vw,100px);
+      line-height:.92;
+      letter-spacing:-.06em;
+      font-weight:800;
+    }
+    .btp-title span{color:var(--punch-red)}
+    .btp-intro{
+      margin:0 0 4px;
+      max-width:620px;
+      color:var(--ink-soft);
+      font-size:clamp(14px,1.2vw,17px);
+      line-height:1.7;
+    }
+
+    /* =========================================================
+       CARDS
+       Equal height comes from the grid stretching both cards,
+       not from hard-coded pixel heights.
+       ========================================================= */
+    .btp-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:clamp(18px,3vw,32px);
+      align-items:stretch;
+    }
+
+    .btp-card{
+      position:relative;
+      min-width:0;
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      padding:clamp(20px,3vw,30px);
+      border:1px solid var(--border-light);
+      border-radius:24px;
+      background:rgba(255,255,255,.55);
+      box-shadow:0 18px 54px rgba(43,45,66,.07);
+    }
+    .btp-card::before{
+      content:"";
+      position:absolute;
+      width:190px;height:190px;
+      right:-95px;top:-95px;
+      border:1px solid rgba(43,45,66,.055);
+      border-radius:50%;
+      pointer-events:none;
+    }
+
+    .btp-card__head{
+      position:relative;
+      z-index:1;
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:16px;
+      flex:0 0 auto;
+    }
+    .btp-card__label{
+      color:var(--punch-red);
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+    .btp-card__index{
+      color:var(--lavender-grey);
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:.12em;
+    }
+
+    /* =========================================================
+       BADGE STAGE — grows to fill the card, never clips the note
+       ========================================================= */
+    .btp-badge-stage{
+      position:relative;
+      width:100%;
+      min-width:0;
+      flex:1 1 auto;
+      min-height:var(--stage-h);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      border-radius:18px;
+      background:var(--space-indigo);
+    }
+
+    .btp-linkedin-stage{padding:10px}
+
+    /* Size only the outer stage — LinkedIn's internal badge keeps its own dimensions. */
+    .btp-linkedin-stage .LI-profile-badge{
+      width:auto;
+      max-width:100%;
+      margin:0 auto;
+      flex:0 0 auto;
+    }
+    .btp-linkedin-stage .badge-base__link{
+      max-width:100%;
+      overflow-wrap:anywhere;
+    }
+
+    /* =========================================================
+       GITHUB LIVE CARD
+       ========================================================= */
+    .btp-github-card{
+      width:100%;
+      height:100%;
+      padding:clamp(20px,2.4vw,26px);
+      color:var(--platinum);
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:16px;
+    }
+    .btp-github-top{
+      display:flex;
+      align-items:center;
+      gap:15px;
+      min-width:0;
+    }
+    .btp-github-avatar{
+      width:64px;height:64px;
+      flex:0 0 64px;
+      border-radius:50%;
+      object-fit:cover;
+      border:2px solid rgba(237,242,244,.14);
+      background:rgba(237,242,244,.06);
+    }
+    .btp-github-id{min-width:0}
+    .btp-github-name{
+      font-size:20px;
+      line-height:1.12;
+      font-weight:800;
+      letter-spacing:-.02em;
+      overflow-wrap:anywhere;
+    }
+    .btp-github-handle{
+      margin-top:5px;
+      color:var(--lavender-grey);
+      font-size:12px;
+      overflow-wrap:anywhere;
+    }
+    .btp-github-bio{
+      margin:0;
+      color:var(--lavender-grey);
+      font-size:13px;
+      line-height:1.6;
+      overflow-wrap:anywhere;
+      /* keep long bios from pushing the button out of the stage */
+      display:-webkit-box;
+      -webkit-line-clamp:3;
+      line-clamp:3;
+      -webkit-box-orient:vertical;
+      overflow:hidden;
+    }
+    .btp-github-stats{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:0;
+    }
+    .btp-github-stats span{
+      padding:9px 13px;
+      border:1px solid var(--border-dark);
+      border-radius:10px;
+      color:var(--lavender-grey);
+      font-size:11px;
+      line-height:1.2;
+    }
+    .btp-github-stats strong{
+      display:block;
+      margin-bottom:3px;
+      color:var(--platinum);
+      font-size:17px;
+      font-weight:800;
+      letter-spacing:-.02em;
+    }
+    .btp-github-link{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:44px;
+      padding:11px 14px;
+      border-radius:10px;
+      background:var(--flag-red);
+      color:var(--platinum);
+      text-decoration:none;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.04em;
+      transition:background .25s ease,transform .25s ease;
+    }
+    @media (hover:hover){
+      .btp-github-link:hover{background:var(--punch-red);transform:translateY(-2px)}
+    }
+    .btp-github-skeleton{
+      color:var(--lavender-grey);
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    /* =========================================================
+       CARD NOTE
+       ========================================================= */
+    .btp-note{
+      position:relative;
+      z-index:1;
+      flex:0 0 auto;
+      margin:14px 0 0;
+      color:var(--lavender-grey);
+      font-size:11.5px;
+      line-height:1.55;
+    }
+
+    /* =========================================================
+       LINKEDIN FALLBACK
+       Shown only when the official badge script cannot render
+       (local file preview, blocked script, offline).
+       ========================================================= */
+    .btp-linkedin-fallback{
+      display:none;
+      width:min(265px,100%);
+      align-items:center;
+      gap:14px;
+      padding:22px;
+      border-radius:16px;
+      background:var(--space-indigo);
+      border:1px solid var(--border-dark);
+      color:var(--platinum);
+      text-decoration:none;
+      box-shadow:0 16px 40px rgba(43,45,66,.18);
+    }
+    .btp-fallback-mark{
+      width:58px;height:58px;
+      flex:0 0 58px;
+      display:grid;
+      place-items:center;
+      border-radius:14px;
+      background:var(--platinum);
+      color:#0A66C2;
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:32px;
+      font-weight:800;
+      line-height:1;
+    }
+    .btp-fallback-copy{
+      min-width:0;
+      display:flex;
+      flex-direction:column;
+    }
+    .btp-fallback-copy strong{
+      color:var(--platinum);
+      font-size:16px;
+      line-height:1.15;
+      font-weight:800;
+    }
+    .btp-fallback-copy small{
+      margin-top:5px;
+      color:var(--lavender-grey);
+      font-size:11px;
+      line-height:1.35;
+    }
+    .btp-fallback-copy em{
+      margin-top:12px;
+      color:var(--punch-red);
+      font-size:11px;
+      font-style:normal;
+      font-weight:800;
+    }
+
+    .linkedin-fallback-visible .btp-linkedin-fallback{display:flex}
+    .linkedin-fallback-visible .btp-linkedin-stage > .LI-profile-badge{display:none}
+    .linkedin-native-loaded .btp-linkedin-fallback{display:none}
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+    @media(max-width:950px){
+      :root{--stage-h:360px}
+      .btp-header{grid-template-columns:1fr}
+      .btp-intro{max-width:650px}
+    }
+
+    @media(max-width:700px){
+      :root{--stage-h:340px}
+      .btp-section{padding:58px 16px 70px}
+      .btp-title{font-size:clamp(44px,13vw,68px)}
+      .btp-grid{grid-template-columns:1fr}
+    }
+
+    @media(max-width:430px){
+      :root{--stage-h:320px}
+      .btp-github-name{font-size:18px}
+      .btp-github-avatar{width:56px;height:56px;flex-basis:56px}
+      .btp-github-stats{gap:8px}
+      .btp-linkedin-fallback{padding:18px;gap:12px}
+      .btp-fallback-mark{width:50px;height:50px;flex-basis:50px;font-size:28px}
+    }
+
+    @media(max-width:360px){
+      .btp-github-top{gap:12px}
+      .btp-github-stats span{padding:8px 11px}
+    }
+

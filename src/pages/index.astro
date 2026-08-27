@@ -1,0 +1,59 @@
+---
+/* Section order is identical to "Adnan Main Portfolio.html" lines 5540-7208.
+
+   The .contact-block wrapper is reproduced here rather than inside a component
+   because it carries id="contact" -- the target of the header and mobile-nav
+   links -- while the form section below it is id="contact-form". Its only
+   styling lives in merge-layer.css, which selects .contact-block .cta and
+   .contact-block .contact. */
+import Layout from '../layouts/Layout.astro';
+
+import Hero from '../components/sections/Hero.astro';
+import Impact from '../components/sections/Impact.astro';
+import Projects from '../components/sections/Projects.astro';
+import CaseStudies from '../components/sections/CaseStudies.astro';
+import Services from '../components/sections/Services.astro';
+import B2BChannel from '../components/sections/B2BChannel.astro';
+import MarketingTools from '../components/sections/MarketingTools.astro';
+import Experience from '../components/sections/Experience.astro';
+import About from '../components/sections/About.astro';
+import BeyondPortfolio from '../components/sections/BeyondPortfolio.astro';
+import Cta from '../components/sections/Cta.astro';
+import Contact from '../components/sections/Contact.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+import MobileFilterSheet from '../components/overlays/MobileFilterSheet.astro';
+import ProjectOverlay from '../components/overlays/ProjectOverlay.astro';
+import CaseStudyModal from '../components/overlays/CaseStudyModal.astro';
+import CtaModal from '../components/overlays/CtaModal.astro';
+---
+<Layout>
+  <Hero />
+  <Impact />
+  <Projects />
+  <CaseStudies />
+  <Services />
+  <B2BChannel />
+  <MarketingTools />
+  <Experience />
+  <About />
+  <BeyondPortfolio />
+
+  <!-- ============================================================
+       CONTACT BLOCK — the CTA is the heading of the contact section.
+       The wrapper owns #contact; the form section is #contact-form.
+       ============================================================ -->
+  <div class="contact-block" id="contact">
+    <Cta />
+    <Contact />
+  </div><!-- /.contact-block -->
+
+  <SiteFooter />
+
+  <Fragment slot="overlays">
+    <MobileFilterSheet />
+    <ProjectOverlay />
+    <CaseStudyModal />
+    <CtaModal />
+  </Fragment>
+</Layout>

@@ -1,0 +1,155 @@
+/* Ported verbatim from "Adnan Main Portfolio.html" lines 5327-5479.
+   Do not reformat or rename tokens. */
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background:var(--footer-indigo);
+  color:var(--footer-platinum);
+  border-top:1px solid rgba(237,242,244,.10);
+  padding:clamp(38px,5vw,68px) clamp(18px,5vw,80px) 22px;
+}
+
+.footer::before{
+  content:"";
+  position:absolute;
+  width:480px;
+  height:480px;
+  right:-270px;
+  top:-220px;
+  border:1px solid rgba(141,153,174,.08);
+  border-radius:50%;
+  pointer-events:none;
+}
+
+.footer::after{
+  content:"";
+  position:absolute;
+  width:320px;
+  height:320px;
+  left:-220px;
+  bottom:-220px;
+  border:1px solid rgba(141,153,174,.06);
+  border-radius:50%;
+  pointer-events:none;
+}
+
+.footer__inner{
+  position:relative;
+  z-index:1;
+  width:min(1380px,100%);
+  margin:0 auto;
+}
+
+.footer__top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:30px;
+  padding-bottom:26px;
+  border-bottom:1px solid rgba(237,242,244,.10);
+}
+
+.footer__brand{
+  min-width:0;
+}
+
+.footer__name{
+  margin:0;
+  font-size:clamp(24px,3vw,36px);
+  line-height:1;
+  letter-spacing:-.045em;
+  font-weight:800;
+}
+
+.footer__name span{
+  color:var(--footer-red);
+}
+
+.footer__tagline{
+  margin:9px 0 0;
+  color:var(--footer-lavender);
+  font-size:11px;
+  line-height:1.6;
+}
+
+.footer__location{
+  margin-top:5px;
+  color:var(--footer-lavender);
+  font-size:9px;
+  font-weight:600;
+  letter-spacing:.04em;
+}
+
+.footer__links{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+  gap:8px;
+}
+
+.footer__link{
+  display:inline-flex;
+  align-items:center;
+  min-height:34px;
+  padding:7px 11px;
+  border:1px solid rgba(237,242,244,.12);
+  border-radius:999px;
+  background:rgba(237,242,244,.025);
+  color:var(--footer-platinum);
+  text-decoration:none;
+  font-size:9px;
+  font-weight:700;
+  transition:
+    transform .22s ease,
+    border-color .22s ease,
+    background .22s ease,
+    color .22s ease;
+}
+
+.footer__link:hover{
+  transform:translateY(-2px);
+  border-color:rgba(239,35,60,.55);
+  background:rgba(239,35,60,.08);
+  color:var(--footer-platinum);
+}
+
+.footer__bottom{
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  gap:20px;
+  padding-top:17px;
+}
+
+.footer__copyright,
+
+
+
+
+
+@media(max-width:700px){
+  .footer{
+    padding:35px 16px 18px;
+  }
+
+  .footer__top{
+    flex-direction:column;
+    gap:22px;
+  }
+
+  .footer__links{
+    justify-content:flex-start;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .footer__link,
+  .footer__top-button{
+    transition:none;
+  }
+}
+

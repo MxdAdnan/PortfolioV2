@@ -1,0 +1,275 @@
+/* Ported verbatim from "Adnan Main Portfolio.html" lines 774-1046.
+   Do not reformat or rename tokens. */
+/* ============================================================
+   MARKETING IMPACT
+   ============================================================ */
+.impact{
+  position:relative;
+  padding:clamp(52px,6vw,82px) clamp(20px,6vw,96px);
+  overflow:hidden;
+  background:var(--platinum);
+}
+.impact::before{
+  content:"";
+  position:absolute;
+  width:clamp(300px,42vw,680px);
+  height:clamp(300px,42vw,680px);
+  right:-18%;
+  top:-25%;
+  border-radius:50%;
+  background:var(--indigo);
+  opacity:.035;
+}
+.impact::after{
+  content:"";
+  position:absolute;
+  width:clamp(180px,24vw,360px);
+  height:clamp(180px,24vw,360px);
+  left:-12%;
+  bottom:-16%;
+  border-radius:50%;
+  border:1px solid rgba(43,45,66,.08);
+}
+.impact-inner{
+  position:relative;
+  z-index:1;
+  max-width:1440px;
+  margin:auto;
+}
+.impact-heading{
+  display:grid;
+  grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+  gap:clamp(40px,8vw,120px);
+  align-items:end;
+  margin-bottom:clamp(34px,4.5vw,60px);
+}
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:18px;
+  color:var(--punch);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.eyebrow::before{
+  content:"";
+  width:28px;
+  height:2px;
+  background:var(--punch);
+}
+.impact h2{
+  margin:0;
+  color:var(--indigo);
+  font-size:clamp(48px,7vw,96px);
+  line-height:.92;
+  letter-spacing:-.055em;
+  font-weight:800;
+}
+.impact h2 span{color:var(--punch)}
+.intro{
+  max-width:620px;
+  margin:0;
+  color:var(--lavender);
+  font-size:clamp(15px,1.5vw,19px);
+  line-height:1.7;
+}
+.intro strong{color:var(--indigo)}
+.metrics{
+  display:flex;
+  width:100%;
+  border-top:1px solid rgba(43,45,66,.13);
+  border-left:1px solid rgba(43,45,66,.13);
+  overflow:hidden;
+  background:rgba(255,255,255,.22);
+}
+.metric{
+  position:relative;
+  flex:1 1 0;
+  min-width:0;
+  min-height:230px;
+  padding:clamp(24px,2.5vw,38px);
+  border-right:1px solid rgba(43,45,66,.13);
+  border-bottom:1px solid rgba(43,45,66,.13);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  background:transparent;
+  transition:
+    background .35s ease,
+    transform .35s cubic-bezier(.22,.61,.36,1),
+    box-shadow .35s ease;
+}
+.metric::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:0;
+  height:3px;
+  background:var(--punch);
+  transition:width .5s cubic-bezier(.22,.61,.36,1);
+}
+.metric:hover{
+  background:rgba(255,255,255,.68);
+  transform:translateY(-6px);
+  box-shadow:0 18px 40px rgba(43,45,66,.07);
+}
+.metric:hover::after{
+  width:100%;
+}
+.metric:nth-child(2)::before,
+.metric:nth-child(5)::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:4px;
+  height:46px;
+  background:var(--punch);
+}
+.number{
+  display:flex;
+  align-items:baseline;
+  gap:3px;
+  color:var(--indigo);
+  font-size:clamp(36px,3.7vw,62px);
+  line-height:.9;
+  letter-spacing:-.055em;
+  font-weight:800;
+}
+.number .plus,
+.number .suffix{
+  color:var(--punch);
+  font-size:.48em;
+  letter-spacing:-.02em;
+}
+.label{
+  max-width:190px;
+  color:var(--indigo);
+  font-size:13px;
+  line-height:1.35;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.detail{
+  margin-top:8px;
+  color:var(--lavender);
+  font-size:11px;
+  line-height:1.45;
+}
+.impact-foot{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  margin-top:32px;
+  color:var(--lavender);
+  font-size:11px;
+  font-weight:500;
+}
+.impact-foot span:first-child{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.dot{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--punch);
+  box-shadow:0 0 0 5px rgba(239,35,60,.08);
+}
+
+@media(max-width:900px){
+  .impact-heading{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+  .metrics{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    overflow:visible;
+  }
+  .metric{
+    min-width:0;
+  }
+}
+@media(max-width:560px){
+  .impact{
+    padding:54px 18px 42px;
+  }
+  .metrics{
+    grid-template-columns:1fr;
+  }
+  .impact h2{font-size:clamp(46px,14vw,68px)}
+  .intro{font-size:14px;line-height:1.65}
+  .metrics{grid-template-columns:1fr}
+  .metric{min-height:185px;padding:25px 22px}
+  .number{font-size:56px}
+  /* impact footer removed */
+  /* impact footer removed */
+}
+@media(prefers-reduced-motion:reduce){
+  .metric{transition:none}
+  .impact-heading,
+  .metric{
+    opacity:1;
+    transform:none;
+    filter:none;
+    animation:none!important;
+  }
+}
+
+/* =========================================================
+   MARKETING IMPACT — LIFE / ENTRANCE / EXIT
+   ========================================================= */
+.impact-heading,
+.metric{opacity:0}
+
+.impact.no-anim .impact-heading,
+.impact.no-anim .metric{opacity:1;animation:none}
+.impact.is-visible .impact-heading{
+  animation:impactHeadingIn .8s cubic-bezier(.22,.61,.36,1) forwards;
+}
+.impact.is-visible .metric{
+  animation:impactMetricIn .72s cubic-bezier(.22,.61,.36,1) forwards;
+}
+.impact.is-visible .metric:nth-child(1){animation-delay:.08s}
+.impact.is-visible .metric:nth-child(2){animation-delay:.14s}
+.impact.is-visible .metric:nth-child(3){animation-delay:.20s}
+.impact.is-visible .metric:nth-child(4){animation-delay:.26s}
+.impact.is-visible .metric:nth-child(5){animation-delay:.32s}
+.impact.is-visible .metric:nth-child(6){animation-delay:.38s}
+
+.impact.is-exiting .impact-heading{
+  animation:impactExit .55s cubic-bezier(.55,.06,.68,.19) forwards;
+}
+.impact.is-exiting .metric{
+  animation:impactExit .48s cubic-bezier(.55,.06,.68,.19) forwards;
+}
+.impact.is-exiting .metric:nth-child(1){animation-delay:0s}
+.impact.is-exiting .metric:nth-child(2){animation-delay:.025s}
+.impact.is-exiting .metric:nth-child(3){animation-delay:.05s}
+.impact.is-exiting .metric:nth-child(4){animation-delay:.075s}
+.impact.is-exiting .metric:nth-child(5){animation-delay:.10s}
+.impact.is-exiting .metric:nth-child(6){animation-delay:.125s}
+
+
+@keyframes impactHeadingIn{
+  from{opacity:0;transform:translateY(42px);filter:blur(5px)}
+  to{opacity:1;transform:translateY(0);filter:blur(0)}
+}
+@keyframes impactMetricIn{
+  from{opacity:0;transform:translateY(42px) scale(.975)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+@keyframes impactExit{
+  from{opacity:1;transform:translateY(0)}
+  to{opacity:0;transform:translateY(-28px);filter:blur(3px)}
+}
+

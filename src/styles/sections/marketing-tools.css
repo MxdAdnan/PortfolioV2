@@ -1,0 +1,198 @@
+/* Ported verbatim from "Adnan Main Portfolio.html" lines 3151-3346.
+   Do not reformat or rename tokens. */
+/* ============================================================
+   MARKETING TOOLS
+   ============================================================ */
+/* NOTE:  was removed. It breaks position:sticky
+   elsewhere in the portfolio; .mt-section already clips its own overflow. */
+
+/* ================= SECTION ================= */
+
+.mt-section{
+  position:relative;
+  overflow:hidden;
+  padding:clamp(68px,7vw,112px) clamp(18px,5vw,80px);
+  background:var(--mt-i);
+  color:var(--mt-p);
+  font-family:Poppins,sans-serif;
+}
+.mt-section:before{
+  content:"";
+  position:absolute;
+  width:620px;height:620px;
+  right:-300px;top:-220px;
+  border-radius:50%;
+  border:1px solid rgba(141,153,174,.16);
+  pointer-events:none;
+}
+.mt-section:after{
+  content:"";
+  position:absolute;
+  width:420px;height:420px;
+  left:-250px;bottom:-240px;
+  border-radius:50%;
+  border:1px solid rgba(141,153,174,.11);
+  pointer-events:none;
+}
+.mt-inner{
+  position:relative;
+  z-index:1;
+  width:min(1440px,100%);
+  margin:0 auto;
+}
+.mt-header{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(280px,.72fr);
+  gap:clamp(36px,8vw,120px);
+  align-items:end;
+  margin-bottom:clamp(38px,5vw,58px);
+}
+.mt-eyebrow{
+  display:flex;align-items:center;gap:10px;
+  margin:0 0 18px;
+  color:var(--mt-r);
+  font-size:11px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.mt-eyebrow:before{
+  content:"";width:28px;height:2px;background:var(--mt-r);flex:0 0 28px;
+}
+.mt-title{
+  margin:0;
+  font-size:clamp(44px,7vw,104px);
+  line-height:.91;
+  letter-spacing:-.06em;
+  font-weight:800;
+  overflow-wrap:break-word;
+}
+.mt-title span{color:var(--mt-r)}
+.mt-intro{
+  max-width:620px;margin:0 0 4px;
+  color:var(--mt-l);
+  font-size:clamp(14px,1.25vw,18px);
+  line-height:1.72;
+}
+
+/* ---- toolbox ---- */
+.mt-toolbox{
+  border:1px solid rgba(43,45,66,.16);
+  border-radius:28px;
+  background:var(--mt-p);
+  color:var(--mt-i);
+  box-shadow:0 28px 80px rgba(0,0,0,.18);
+  overflow:hidden;
+}
+.mt-toolbox__top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  padding:15px 22px;
+  border-bottom:1px solid rgba(43,45,66,.12);
+  color:#5d6779;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.14em;
+}
+.mt-toolbox__tools{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  padding:28px;
+  margin:0;
+  list-style:none;
+}
+
+/* ---- chips ---- */
+.mt-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  min-width:0;
+  min-height:48px;
+  padding:7px 13px 7px 8px;
+  border:1px solid rgba(43,45,66,.13);
+  border-radius:999px;
+  background:rgba(255,255,255,.86);
+  color:var(--mt-i);
+  transition:transform .23s ease,background .23s ease,border-color .23s ease,box-shadow .23s ease;
+}
+.mt-chip:hover{
+  transform:translateY(-3px);
+  background:#fff;
+  border-color:rgba(239,35,60,.40);
+  box-shadow:0 10px 24px rgba(43,45,66,.14);
+}
+.mt-chip__logo{
+  width:32px;height:32px;
+  flex:0 0 32px;
+  display:grid;place-items:center;
+  border-radius:50%;
+  background:#fff;
+  border:1px solid rgba(43,45,66,.10);
+  overflow:hidden;
+  padding:6px;
+}
+.mt-chip__logo svg,
+.mt-chip__logo img{
+  width:100%;height:100%;
+  object-fit:contain;
+  display:block;
+}
+/* monogram tiles for brands without a redistributable vector mark */
+.mt-chip__logo--mono{padding:0;border-color:transparent;background:transparent}
+.mt-chip__mono{
+  width:100%;height:100%;
+  display:grid;place-items:center;
+  border-radius:7px;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:-.02em;
+  line-height:1;
+}
+.mt-chip__mono--round{border-radius:50%;font-size:13px}
+.mt-chip__name{
+  min-width:0;
+  font-size:11px;
+  line-height:1.15;
+  font-weight:700;
+  letter-spacing:-.01em;
+  white-space:nowrap;
+}
+.mt-toolbox__footer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:18px;
+  padding:13px 22px 16px;
+  border-top:1px solid rgba(43,45,66,.12);
+  color:#5d6779;
+  font-size:10px;
+  line-height:1.5;
+}
+.mt-toolbox__footer strong{color:var(--mt-i)}
+
+@media(max-width:900px){
+  .mt-header{grid-template-columns:1fr}
+}
+@media(max-width:680px){
+  .mt-section{padding:58px 16px 70px}
+  .mt-title{font-size:clamp(34px,11vw,68px)}
+  .mt-toolbox{border-radius:22px}
+  .mt-toolbox__top{padding:14px 16px}
+  .mt-toolbox__tools{padding:18px;gap:8px}
+  .mt-chip{min-height:44px;padding-right:11px}
+  .mt-chip__logo{width:28px;height:28px;flex-basis:28px}
+  .mt-chip__name{font-size:10px}
+  .mt-toolbox__footer{padding:13px 16px 16px;flex-direction:column;align-items:flex-start}
+}
+@media(max-width:430px){
+  .mt-toolbox__tools{display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+  .mt-chip{width:100%;justify-content:flex-start}
+  .mt-chip__name{white-space:normal;overflow-wrap:anywhere}
+}
+@media(prefers-reduced-motion:reduce){
+  .mt-chip{transition:none}
+  .mt-chip:hover{transform:none}
+}
+

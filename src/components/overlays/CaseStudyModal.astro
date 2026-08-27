@@ -1,0 +1,104 @@
+---
+/* Markup ported verbatim from "Adnan Main Portfolio.html" lines 5877-5975.
+   Class names, ids and data-* attributes are load-bearing for the ported
+   scripts in src/scripts -- do not rename. */
+---
+<!-- ============ CASE STUDY REPORT ============ -->
+<div class="fcs-modal" id="fcsModal" aria-hidden="true">
+  <div class="fcs-modal__scrim" data-close></div>
+
+  <div class="fcs-modal__shell" role="dialog" aria-modal="true" aria-labelledby="fcsModalTitle" id="fcsShell">
+
+    <div class="fcs-modal__top">
+      <div class="fcs-modal__ident">
+        <span class="fcs-modal__num" id="fcsModalNum">01</span>
+        <span class="fcs-modal__category" id="fcsModalCategory"></span>
+      </div>
+      <button class="fcs-modal__close" type="button" data-close aria-label="Close case study">&times;</button>
+    </div>
+
+    <div class="fcs-modal__content">
+
+      <!-- gallery -->
+      <div class="fcs-modal__gallery">
+       <div class="fcs-gal__sticky" data-reveal>
+        <div class="fcs-gal__head">
+          <b id="fcsGalHead">Reference visuals</b>
+          <span class="fcs-gal__count" id="fcsGalCount"></span>
+        </div>
+
+        <div class="fcs-modal__main" id="fcsMainWrap">
+          <img id="fcsModalMainImage" src="" alt="">
+          <span class="fcs-gal__tag" id="fcsGalTag">Reference</span>
+        </div>
+
+        <div class="fcs-modal__thumbs" id="fcsModalThumbs" role="group" aria-label="Gallery images"></div>
+
+        <div class="fcs-modal__caption">
+          <p id="fcsModalCaption"></p>
+        </div>
+
+        <p class="fcs-gal__note" id="fcsGalNote">
+          These are reference visuals used to illustrate the type of work, not client screenshots.
+          Verified campaign evidence is shared on request.
+        </p>
+       </div>
+      </div>
+
+      <!-- report -->
+      <div class="fcs-modal__details">
+        <h3 class="fcs-rep__title" id="fcsModalTitle" data-reveal>Case study</h3>
+        <p class="fcs-rep__summary" id="fcsModalSummary" data-reveal></p>
+
+        <dl class="fcs-rep__meta" id="fcsModalMeta" data-reveal></dl>
+
+        <div class="fcs-rep__flow">
+
+          <section class="fcs-step" data-reveal>
+            <h4 class="fcs-step__label"><i>01</i> Challenge</h4>
+            <p id="fcsModalChallenge"></p>
+          </section>
+
+          <section class="fcs-step" data-reveal>
+            <h4 class="fcs-step__label"><i>02</i> Objective</h4>
+            <p id="fcsModalObjective"></p>
+          </section>
+
+          <section class="fcs-step" data-reveal>
+            <h4 class="fcs-step__label"><i>03</i> Strategy</h4>
+            <p id="fcsModalStrategy"></p>
+          </section>
+
+          <section class="fcs-step" data-reveal>
+            <h4 class="fcs-step__label"><i>04</i> Execution</h4>
+            <p id="fcsModalExecution"></p>
+          </section>
+
+          <section class="fcs-step" data-reveal>
+            <h4 class="fcs-step__label"><i>05</i> Tools &amp; platforms</h4>
+            <ul class="fcs-tools" id="fcsModalTools"></ul>
+          </section>
+
+          <section class="fcs-step fcs-step--key" data-reveal>
+            <h4 class="fcs-step__label"><i>06</i> Results</h4>
+            <div class="fcs-results" id="fcsModalMetrics"></div>
+            <p class="fcs-result-note" id="fcsModalResult"></p>
+            <span class="fcs-result-flag" id="fcsModalResultFlag"></span>
+          </section>
+
+          <section class="fcs-step" data-reveal>
+            <h4 class="fcs-step__label"><i>07</i> Outcome &amp; learning</h4>
+            <p id="fcsModalLearning"></p>
+          </section>
+
+        </div>
+
+        <div class="fcs-rep__foot" data-reveal>
+          <a class="fcs-rep__link" id="fcsModalLink" href="#" hidden>View live project <span aria-hidden="true">↗</span></a>
+          <p class="fcs-rep__disclaimer" id="fcsModalDisclaimer"></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

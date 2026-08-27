@@ -1,0 +1,110 @@
+---
+/* Markup ported verbatim from "Adnan Main Portfolio.html" lines 6825-6929.
+   Class names, ids and data-* attributes are load-bearing for the ported
+   scripts in src/scripts -- do not rename. */
+---
+
+<!-- =========================================================
+     CTA CONTACT FORM MODAL
+     ========================================================= -->
+
+<div
+  class="cta-modal"
+  id="ctaModal"
+  aria-hidden="true">
+
+  <div class="cta-modal__backdrop" data-cta-close></div>
+
+  <div
+    class="cta-modal__dialog"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="ctaModalTitle">
+
+    <button
+      class="cta-modal__close"
+      id="ctaCloseForm"
+      type="button"
+      aria-label="Close contact form">
+      ×
+    </button>
+
+    <div class="cta-modal__eyebrow">
+      START A CONVERSATION
+    </div>
+
+    <h2 id="ctaModalTitle">
+      Let’s build something
+      <span>that performs.</span>
+    </h2>
+
+    <p class="cta-modal__intro">
+      Tell me a little about what you are working on.
+      I’ll get back to you with the next step.
+    </p>
+
+    <form
+      class="cta-form"
+      id="ctaForm">
+
+      <div class="cta-form__grid">
+
+        <label>
+          <span>Name</span>
+          <input
+            type="text"
+            name="name"
+            autocomplete="name"
+            placeholder="Your name"
+            required>
+        </label>
+
+        <label>
+          <span>Email</span>
+          <input
+            type="email"
+            name="email"
+            autocomplete="email"
+            placeholder="you@example.com"
+            required>
+        </label>
+
+      </div>
+
+      <label>
+        <span>What are you working on?</span>
+        <select name="project" required>
+          <option value="" selected disabled>Select one</option>
+          <option>Marketing campaign</option>
+          <option>Website / landing page</option>
+          <option>SEO / organic growth</option>
+          <option>Paid advertising</option>
+          <option>B2B / channel marketing</option>
+          <option>Something else</option>
+        </select>
+      </label>
+
+      <label>
+        <span>Tell me briefly</span>
+        <textarea
+          name="message"
+          rows="5"
+          placeholder="What do you need help with?"
+          required></textarea>
+      </label>
+
+      <button
+        class="cta-form__submit"
+        type="submit">
+        Send Enquiry →
+      </button>
+
+      <p
+        class="cta-form__status"
+        id="ctaFormStatus"
+        aria-live="polite"></p>
+
+    </form>
+
+  </div>
+</div>

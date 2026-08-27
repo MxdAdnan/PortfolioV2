@@ -1,0 +1,58 @@
+/* Ported verbatim from "Adnan Main Portfolio.html" lines 5480-5535.
+   Do not reformat or rename tokens. */
+/* ============================================================================
+   MERGE LAYER — nothing above this point changes what a section looks like.
+   Loaded last so it wins on source order without needing !important.
+   ============================================================================ */
+
+/* ---- 1. section rhythm ----------------------------------------------------
+   Every file was standalone, so each carried a full top AND bottom pad. Stacked,
+   that doubled into dead space. One vertical value now applies to every section;
+   horizontal padding is untouched because only padding-block is set. */
+.impact,
+.projects,
+.fcs,
+.services,
+.b2b-channel,
+.mt-section,
+.exp-section,
+.about,
+.btp-section,
+.cta,
+.contact{
+  padding-block:var(--section-pad-y);
+}
+
+/* CTA reads as the Contact heading, so the seam between them is tightened. */
+.contact-block .cta{padding-block:var(--section-pad-y) calc(var(--section-pad-y) * .45)}
+.contact-block .contact{padding-block:calc(var(--section-pad-y) * .45) var(--section-pad-y)}
+
+/* ---- 2. anchors clear the fixed header ---- */
+#hero,#marketing-impact,#projects-overview,#featured-case-studies,#services,
+#b2b-channel,#marketing-tools,#experience,#about-me,#beyond-the-portfolio,
+#contact,#contact-form{
+  scroll-margin-top:calc(var(--header-h) + 10px);
+}
+
+/* ---- 3. nav active state ---- */
+.main-nav a.is-active{color:var(--red)}
+.main-nav a.is-active::after{width:100%}
+.mobile-nav__links a.is-active{color:var(--red)}
+.mobile-nav__links a.is-active::after{content:"";}
+
+/* ---- 4. mobile nav fallback if the GSAP CDN is blocked ---- */
+html.no-gsap .mobile-nav.is-open{visibility:visible;transform:none}
+html.no-gsap .nav-scrim{transition:opacity .25s ease}
+html.no-gsap .nav-scrim.is-open{opacity:1;visibility:visible}
+
+/* ---- 5. one reduced-motion policy (was duplicated in 3 files) ---- */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+    scroll-behavior:auto!important;
+  }
+}
+

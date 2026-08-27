@@ -1,0 +1,86 @@
+---
+/* Markup ported verbatim from "Adnan Main Portfolio.html" lines 6691-6771.
+   Class names, ids and data-* attributes are load-bearing for the ported
+   scripts in src/scripts -- do not rename. */
+---
+<!-- ============ BEYOND THE PORTFOLIO ============ -->
+<section class="btp-section" id="beyond-the-portfolio" aria-labelledby="btp-title">
+    <div class="btp-inner">
+
+      <header class="btp-header">
+        <div>
+          <div class="btp-eyebrow">09 &nbsp; Beyond the portfolio</div>
+          <h2 class="btp-title" id="btp-title">
+            Find me<br><span>elsewhere.</span>
+          </h2>
+        </div>
+
+        <p class="btp-intro">
+          The portfolio shows the work. These live profiles show the person,
+          projects and activity behind it.
+        </p>
+      </header>
+
+      <div class="btp-grid">
+
+        <!-- ============ LINKEDIN ============ -->
+        <article class="btp-card" aria-labelledby="linkedin-profile-title">
+
+          <div class="btp-card__head">
+            <span class="btp-card__label" id="linkedin-profile-title">LinkedIn profile</span>
+            <span class="btp-card__index">01</span>
+          </div>
+
+          <div class="btp-badge-stage btp-linkedin-stage" id="linkedin-badge-stage">
+
+            <!-- Official LinkedIn badge markup — unmodified -->
+            <div class="badge-base LI-profile-badge"
+                 data-locale="en_US"
+                 data-size="medium"
+                 data-theme="light"
+                 data-type="VERTICAL"
+                 data-vanity="md-adnan12"
+                 data-version="v1">
+              <a class="badge-base__link LI-simple-link"
+                 href="https://ae.linkedin.com/in/md-adnan12?trk=profile-badge">Mohammed Adnan</a>
+            </div>
+
+            <!-- Fallback: only rendered if the badge script cannot load -->
+            <a class="btp-linkedin-fallback"
+               id="linkedin-fallback"
+               href="https://ae.linkedin.com/in/md-adnan12"
+               target="_blank"
+               rel="noopener noreferrer">
+              <span class="btp-fallback-mark" aria-hidden="true">in</span>
+              <span class="btp-fallback-copy">
+                <strong>Mohammed Adnan</strong>
+                <small>Marketing Executive</small>
+                <em>View LinkedIn profile →</em>
+              </span>
+            </a>
+
+          </div>
+
+          <p class="btp-note">Live LinkedIn profile badge.</p>
+        </article>
+
+        <!-- ============ GITHUB ============ -->
+        <article class="btp-card" aria-labelledby="github-profile-title">
+
+          <div class="btp-card__head">
+            <span class="btp-card__label" id="github-profile-title">GitHub profile</span>
+            <span class="btp-card__index">02</span>
+          </div>
+
+          <div class="btp-badge-stage btp-github-stage" id="github-profile-badge" aria-live="polite">
+            <span class="btp-github-skeleton">Loading profile…</span>
+          </div>
+
+          <p class="btp-note">
+            Repository and follower counts are loaded live from the GitHub API.
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>

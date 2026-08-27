@@ -1,0 +1,78 @@
+/* Ported verbatim from "Adnan Main Portfolio.html" lines 22-97.
+   Do not reformat or rename tokens. */
+/* ============================================================================
+   MOHAMMED ADNAN — PORTFOLIO  (merged build)
+   One :root, one reset, one font import. 65 tokens consolidated from the 13
+   source files. Only genuine conflict was --line (.12 in Projects/Services vs
+   .10 in Case Studies) -> Case Studies renamed to --fcs-line.
+   ============================================================================ */
+:root{
+  --indigo:#2B2D42;
+  --indigo-soft:#383B57;
+  --lavender:#8D99AE;
+  --platinum:#EDF2F4;
+  --red:#EF233C;
+  --flag-red:#D90429;
+  --header-h:84px;
+  --header-h-mobile:66px;
+  --ease-premium:cubic-bezier(.16,.84,.32,1);
+  --ease-soft:cubic-bezier(.22,.61,.36,1);
+  --container-pad:clamp(24px, 5vw, 72px);
+  --punch:#EF233C;
+  --flag:#D90429;
+  --white:#fff;
+  --line:rgba(43,45,66,.12);
+  --shadow:0 22px 70px rgba(43,45,66,.10);
+  --radius:24px;
+  --ink-soft:#565A75;
+  --line-strong:rgba(43,45,66,.16);
+  --surface:#FFFFFF;
+  --deep-2:#1F2131;
+  --muted:#5E6A7D;
+  --mt-i:#2b2d42;
+  --mt-l:#8d99ae;
+  --mt-p:#edf2f4;
+  --mt-r:#ef233c;
+  --mt-fr:#d90429;
+  --exp-indigo:#2B2D42;
+  --exp-lavender:#8D99AE;
+  --exp-platinum:#EDF2F4;
+  --exp-red:#EF233C;
+  --exp-flag:#D90429;
+  --exp-muted-light:#5D6577;
+  --exp-muted-dark:#AEB9CA;
+  --exp-red-on-dark:#FF7A88;
+  --exp-rest:.5;
+  --about-indigo:#2b2d42;
+  --about-lavender:#8d99ae;
+  --about-lavender-ink:#5a6376;
+  --about-lavender-soft:#a3adbf;
+  --about-platinum:#edf2f4;
+  --about-red:#ef233c;
+  --about-flag:#d90429;
+  --space-indigo:#2B2D42;
+  --lavender-grey:#8D99AE;
+  --punch-red:#EF233C;
+  --border-light:rgba(43,45,66,.12);
+  --border-dark:rgba(237,242,244,.14);
+  --stage-h:390px;
+  --cta-indigo:#2B2D42;
+  --cta-lavender:#8D99AE;
+  --cta-platinum:#EDF2F4;
+  --cta-red:#EF233C;
+  --cta-flag:#D90429;
+  --contact-indigo:#2B2D42;
+  --contact-lavender:#8D99AE;
+  --contact-platinum:#EDF2F4;
+  --contact-red:#EF233C;
+  --contact-flag:#D90429;
+  --contact-line:rgba(43,45,66,.12);
+  --footer-indigo:#2B2D42;
+  --footer-lavender:#8D99AE;
+  --footer-platinum:#EDF2F4;
+  --footer-red:#EF233C;
+  --footer-flag:#D90429;
+  --fcs-line:rgba(43,45,66,.10);   /* was --line in PORT_Case-studies.html */
+  --section-pad-y:clamp(56px,6vw,92px);
+}
+@media(max-width:700px){ :root{ --section-pad-y:clamp(40px,7vw,58px); } }

@@ -1,0 +1,68 @@
+---
+/* Markup ported verbatim from "Adnan Main Portfolio.html" lines 6628-6689.
+   Class names, ids and data-* attributes are load-bearing for the ported
+   scripts in src/scripts -- do not rename. */
+import { withBase } from '../../lib/base';
+---
+<!-- ============ ABOUT ME ============ -->
+<section class="about" id="about-me" aria-labelledby="about-title">
+  <div class="about__inner">
+
+    <header class="about__header">
+      <div>
+        <div class="about__eyebrow">08 &nbsp; ABOUT ME</div>
+        <h2 class="about__title" id="about-title">The person<br><span>behind the work.</span></h2>
+      </div>
+
+      <p class="about__lede">
+        A little more about the person behind the campaigns, websites, ideas and experiments.
+      </p>
+    </header>
+
+    <div class="about__shell">
+
+      <article class="about__copy">
+        <div class="about__copy-inner">
+          <div class="about__kicker">A quick introduction</div>
+
+          <h3 class="about__name">
+            I'm Mohammed <span>Adnan.</span>
+          </h3>
+
+          <p class="about__paragraph">
+            I'm a curious digital marketer who enjoys working where marketing and technology meet.
+            I like understanding the problem first, figuring out what matters, and then building something useful around it.
+          </p>
+
+          <p class="about__paragraph">
+            Outside the dashboards and deadlines, I'm naturally drawn to learning new tools, testing ideas,
+            designing better experiences and figuring out how things work under the hood.
+          </p>
+
+          <div class="about__philosophy">
+            <span class="about__philosophy-label">Personal philosophy</span>
+            <p class="about__philosophy-text">
+              Stay curious. Keep learning. Build with intention. Make digital experiences people actually remember.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <figure class="about__portrait">
+        <img
+          src={withBase("/assets/portrait-about.webp")}
+          alt="Mohammed Adnan in a black suit"
+          width="1039"
+          height="1514"
+          loading="lazy"
+          decoding="async"
+        >
+        <figcaption class="about__portrait-badge">
+          <strong>Marketing × Technology</strong>
+          <span>Curiosity is part of the craft.</span>
+        </figcaption>
+      </figure>
+
+    </div>
+  </div>
+</section>

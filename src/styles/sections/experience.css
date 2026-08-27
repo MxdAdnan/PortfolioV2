@@ -1,0 +1,538 @@
+/* Ported verbatim from "Adnan Main Portfolio.html" lines 3347-3882.
+   Do not reformat or rename tokens. */
+/* ============================================================
+   EXPERIENCE
+   ============================================================ */
+.exp-section{
+  position:relative;
+  isolation:isolate;
+  overflow:clip;
+  padding:clamp(70px,8vw,120px) clamp(18px,5vw,80px);
+  background:
+    radial-gradient(circle at 12% 16%,rgba(141,153,174,.10),transparent 25%),
+    var(--exp-platinum);
+}
+
+.exp-section::before{
+  content:"";
+  position:absolute;
+  width:640px;
+  height:640px;
+  right:-340px;
+  top:-250px;
+  border:1px solid rgba(43,45,66,.065);
+  border-radius:50%;
+  pointer-events:none;
+}
+
+.exp-inner{
+  position:relative;
+  z-index:1;
+  width:min(1400px,100%);
+  margin:0 auto;
+}
+
+/* ---------- Header ---------- */
+.exp-heading{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(280px,430px);
+  gap:clamp(30px,8vw,110px);
+  align-items:end;
+  margin-bottom:clamp(42px,6vw,75px);
+}
+
+.exp-eyebrow{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:0 0 18px;
+  color:var(--exp-flag);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+.exp-eyebrow::before{
+  content:"";
+  width:28px;
+  height:2px;
+  background:var(--exp-flag);
+}
+
+.exp-title{
+  margin:0;
+  font-size:clamp(46px,7vw,105px);
+  line-height:.91;
+  letter-spacing:-.055em;
+  font-weight:800;
+  overflow-wrap:break-word;
+}
+
+.exp-title span{color:var(--exp-red)}
+
+.exp-intro{
+  margin:0 0 5px;
+  color:var(--exp-muted-light);
+  font-size:clamp(14px,1.25vw,18px);
+  line-height:1.7;
+}
+
+/* ---------- Timeline stage ---------- */
+.exp-stage{
+  position:relative;
+  width:min(1120px,100%);
+  margin:0 auto;
+  padding-bottom:clamp(12px,2.5vw,26px);
+}
+
+/* --exp-line-h is measured in JS so the line stops just past the last node
+   instead of trailing off the bottom of the stage. */
+.exp-timeline-svg{
+  position:absolute;
+  left:50%;
+  top:0;
+  width:4px;
+  height:var(--exp-line-h,100%);
+  transform:translateX(-50%);
+  overflow:visible;
+  pointer-events:none;
+  z-index:0;
+}
+
+/* NOTE: no vector-effect:non-scaling-stroke and no drop-shadow here.
+   The viewBox is stretched ~10x vertically by preserveAspectRatio="none";
+   non-scaling-stroke makes the browser resolve stroke-dasharray against the
+   *device* length while pathLength="1" normalises against the *user* length,
+   which renders the "progress line" as a row of ~100px dashes. Without it the
+   dash maths is correct, and the stroke still comes out 2.4px wide because a
+   vertical line's width is governed by the (unscaled) horizontal axis. */
+.exp-line-bg,
+.exp-line-progress{
+  fill:none;
+  stroke-linecap:butt;     /* a round cap would be stretched into a bulge */
+  stroke-width:2.4;
+}
+
+.exp-line-bg{stroke:rgba(43,45,66,.11)}
+
+.exp-line-progress{
+  stroke:var(--exp-red);
+  stroke-dashoffset:0;     /* no-JS: the line is simply drawn */
+}
+
+html.exp-js .exp-line-progress{
+  stroke-dasharray:1;      /* pathLength="1" — 1 unit = the whole line */
+  stroke-dashoffset:1;
+}
+
+/* ---------- Row ---------- */
+.exp-item{
+  position:relative;
+  min-height:clamp(200px,20vw,262px);
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:clamp(28px,5vw,72px);
+  align-items:center;
+}
+
+.exp-item + .exp-item{margin-top:clamp(10px,1.6vw,18px)}
+
+/* Alternate card / side-note around the axis.
+   nth-of-type (NOT nth-child) — the <svg> is the first child of the stage
+   and would otherwise shift the whole alternation by one. */
+.exp-item:nth-of-type(odd) .exp-card{grid-column:1;grid-row:1}
+.exp-item:nth-of-type(odd) .exp-side-note{grid-column:2;grid-row:1;justify-self:start;text-align:left}
+
+.exp-item:nth-of-type(even) .exp-card{grid-column:2;grid-row:1}
+.exp-item:nth-of-type(even) .exp-side-note{grid-column:1;grid-row:1;justify-self:end;text-align:right}
+
+/* ---------- Node on the axis ----------
+   Centering uses the `translate` property, so `transform` is free for scale
+   only — CSS states and GSAP can no longer fight over one transform value. */
+.exp-node{
+  position:absolute;
+  left:50%;
+  top:50%;
+  translate:-50% -50%;
+  width:20px;
+  height:20px;
+  transform:scale(1);
+  border:1px solid rgba(43,45,66,.20);
+  border-radius:50%;
+  background:var(--exp-platinum);
+  box-shadow:0 0 0 7px var(--exp-platinum);
+  z-index:3;
+  transition:background .3s ease,border-color .3s ease,box-shadow .3s ease,opacity .35s ease,transform .35s cubic-bezier(.22,.61,.36,1);
+}
+
+.exp-node::after{
+  content:"";
+  position:absolute;
+  inset:5px;
+  border-radius:50%;
+  background:var(--exp-indigo);
+  opacity:.18;
+  transition:background .3s ease,opacity .3s ease;
+}
+
+html.exp-js .exp-node{opacity:0;transform:scale(.6)}
+html.exp-js .exp-stage.is-entered .exp-node{opacity:.4;transform:scale(.72)}
+
+.exp-item.is-active .exp-node,
+html.exp-js .exp-stage.is-entered .exp-item.is-active .exp-node{
+  background:var(--exp-red);
+  border-color:var(--exp-red);
+  box-shadow:
+    0 0 0 7px var(--exp-platinum),
+    0 0 0 10px rgba(239,35,60,.15);
+  opacity:1;
+  transform:scale(1);
+  transition-delay:0s;
+}
+
+.exp-item.is-active .exp-node::after{
+  background:var(--exp-platinum);
+  opacity:1;
+}
+
+/* ---------- Card ---------- */
+.exp-card{
+  position:relative;
+  padding:clamp(20px,2.5vw,30px);
+  border:1px solid rgba(43,45,66,.10);
+  border-radius:24px;
+  overflow:hidden;                 /* keeps the corner arc inside the card */
+  background:rgba(255,255,255,.58);
+  box-shadow:0 18px 55px rgba(43,45,66,.065);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  opacity:1;
+  transform:none;
+  will-change:opacity,transform;
+  transition:opacity .5s ease,transform .55s cubic-bezier(.22,.61,.36,1),border-color .35s ease,box-shadow .35s ease;
+}
+
+html.exp-js .exp-card{opacity:0;transform:translateY(34px)}
+html.exp-js .exp-stage.is-entered .exp-card{opacity:var(--exp-rest);transform:translateY(12px)}
+
+.exp-item.is-active .exp-card,
+html.exp-js .exp-stage.is-entered .exp-item.is-active .exp-card{
+  opacity:1;
+  transform:none;
+  border-color:rgba(239,35,60,.28);
+  box-shadow:0 26px 70px rgba(43,45,66,.11);
+  transition-delay:0s;
+}
+
+/* Staggered entrance */
+html.exp-js .exp-stage.is-entered .exp-item:nth-of-type(1) .exp-card{transition-delay:.04s}
+html.exp-js .exp-stage.is-entered .exp-item:nth-of-type(2) .exp-card{transition-delay:.12s}
+html.exp-js .exp-stage.is-entered .exp-item:nth-of-type(3) .exp-card{transition-delay:.20s}
+html.exp-js .exp-stage.is-entered .exp-item:nth-of-type(4) .exp-card{transition-delay:.28s}
+html.exp-js .exp-stage.is-entered .exp-item:nth-of-type(1) .exp-node{transition-delay:.24s}
+html.exp-js .exp-stage.is-entered .exp-item:nth-of-type(2) .exp-node{transition-delay:.30s}
+html.exp-js .exp-stage.is-entered .exp-item:nth-of-type(3) .exp-node{transition-delay:.36s}
+html.exp-js .exp-stage.is-entered .exp-item:nth-of-type(4) .exp-node{transition-delay:.42s}
+
+.exp-item:nth-of-type(even) .exp-card{
+  background:var(--exp-indigo);
+  border-color:rgba(237,242,244,.10);
+  color:var(--exp-platinum);
+}
+
+.exp-card::before{
+  content:"";
+  position:absolute;
+  width:140px;
+  height:140px;
+  right:-65px;
+  top:-70px;
+  border:1px solid rgba(43,45,66,.055);
+  border-radius:50%;
+  pointer-events:none;
+}
+
+.exp-item:nth-of-type(even) .exp-card::before{border-color:rgba(237,242,244,.08)}
+
+.exp-item.is-current .exp-card{box-shadow:0 28px 80px rgba(43,45,66,.13)}
+
+/* ---------- Card content ---------- */
+.exp-meta{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:8px 12px;
+  margin-bottom:18px;
+}
+
+.exp-period{
+  color:var(--exp-flag);
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.exp-item:nth-of-type(even) .exp-period{color:var(--exp-red-on-dark)}
+
+.exp-index{
+  margin-left:auto;
+  color:var(--exp-muted-light);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.14em;
+}
+
+.exp-item:nth-of-type(even) .exp-index{color:var(--exp-muted-dark)}
+
+.exp-current{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:4px 9px;
+  border:1px solid rgba(217,4,41,.28);
+  border-radius:99px;
+  color:var(--exp-flag);
+  font-size:9.5px;
+  font-weight:800;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+
+.exp-current::before{
+  content:"";
+  width:5px;height:5px;
+  border-radius:50%;
+  background:var(--exp-flag);
+  box-shadow:0 0 0 4px rgba(217,4,41,.10);
+}
+
+.exp-role{
+  margin:0;
+  font-size:clamp(21px,2.2vw,31px);
+  line-height:1.08;
+  letter-spacing:-.035em;
+  font-weight:800;
+}
+
+.exp-company-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  margin-top:12px;
+}
+
+.exp-company{
+  min-width:0;
+  flex:1;
+  color:var(--exp-muted-light);
+  font-size:12.5px;
+  line-height:1.5;
+  font-weight:500;
+}
+
+.exp-item:nth-of-type(even) .exp-company{color:var(--exp-muted-dark)}
+
+.exp-company-type{
+  display:block;
+  margin-top:4px;
+  font-size:9.5px;
+  line-height:1.3;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  opacity:.8;
+}
+
+/* The plate hugs the mark: square logos get a square box, wide wordmarks get a
+   wide one, so nothing is squeezed down to an illegible sliver. */
+.exp-company-logo{
+  flex:0 0 auto;
+  height:52px;
+  max-width:124px;
+  display:grid;
+  place-items:center;
+  padding:7px 10px;
+  border:1px solid rgba(43,45,66,.10);
+  border-radius:13px;
+  background:#FFFFFF;
+  overflow:hidden;
+}
+
+.exp-item:nth-of-type(even) .exp-company-logo{border-color:rgba(237,242,244,.16)}
+
+/* For marks that only exist as light artwork on transparency */
+.exp-company-logo[data-plate="dark"]{
+  background:var(--exp-indigo);
+  border-color:rgba(43,45,66,.22);
+}
+
+.exp-company-logo[hidden]{display:none}
+
+/* px caps, not percentages: a percentage height on a centred grid item is
+   treated as auto in Chrome, which let tall logos overflow and get clipped. */
+.exp-company-logo img{
+  width:auto;
+  height:auto;
+  max-width:100px;
+  max-height:38px;
+  object-fit:contain;
+  display:block;
+}
+
+/* ---------- Ghost year on the opposite side of the axis ---------- */
+.exp-side-note{
+  min-width:0;
+  pointer-events:none;
+}
+
+.exp-year{
+  display:block;
+  font-size:clamp(58px,8vw,124px);
+  line-height:.82;
+  font-weight:800;
+  letter-spacing:-.05em;
+  color:transparent;
+  -webkit-text-stroke:1.5px rgba(43,45,66,.16);
+  transition:-webkit-text-stroke-color .45s ease;
+}
+
+.exp-item.is-active .exp-year{-webkit-text-stroke-color:rgba(217,4,41,.30)}
+
+@supports not (-webkit-text-stroke:1px #000){
+  .exp-year{color:rgba(43,45,66,.10)}
+  .exp-item.is-active .exp-year{color:rgba(217,4,41,.18)}
+}
+
+/* ---------- Tablet ---------- */
+@media(max-width:900px){
+  .exp-heading{grid-template-columns:1fr}
+  .exp-intro{max-width:650px}
+
+  .exp-item{
+    min-height:238px;
+    gap:36px;
+  }
+
+  .exp-card{
+    padding:24px;
+    /* backdrop-filter is the single most expensive thing here on mobile GPUs */
+    backdrop-filter:none;
+    -webkit-backdrop-filter:none;
+    background:rgba(255,255,255,.88);
+  }
+
+  .exp-item:nth-of-type(even) .exp-card{background:var(--exp-indigo)}
+}
+
+/* ---------- Mobile: same timeline, moved to the left edge ---------- */
+@media(max-width:640px){
+  :root{--exp-rest:.62}
+
+  .exp-section{padding:58px 16px 72px}
+
+  .exp-title{font-size:clamp(38px,11.5vw,60px)}
+
+  .exp-stage{
+    padding-left:0;
+    padding-bottom:10px;
+  }
+
+  /* Keep the element 4px wide so it matches the 4-unit viewBox — a narrower
+     box would squash the stroke to 1px. Axis centre = 12 + 2 = 14px. */
+  .exp-timeline-svg{
+    left:12px;
+    transform:none;
+    width:4px;
+  }
+
+  .exp-line-bg,
+  .exp-line-progress{stroke-width:2}
+
+  .exp-item,
+  .exp-item:nth-of-type(even){
+    display:block;
+    min-height:0;
+    padding-left:46px;
+  }
+
+  .exp-item + .exp-item{margin-top:14px}
+
+  /* node centre = 14px → sits exactly on the axis */
+  .exp-node{
+    left:14px;
+    top:38px;
+    translate:-50% 0;
+    width:18px;
+    height:18px;
+    box-shadow:0 0 0 5px var(--exp-platinum);
+  }
+
+  .exp-item.is-active .exp-node,
+  html.exp-js .exp-stage.is-entered .exp-item.is-active .exp-node{
+    box-shadow:
+      0 0 0 5px var(--exp-platinum),
+      0 0 0 8px rgba(239,35,60,.14);
+  }
+
+  html.exp-js .exp-card{transform:translateY(22px)}
+  html.exp-js .exp-stage.is-entered .exp-card{transform:translateY(8px)}
+
+  .exp-side-note{display:none}
+
+  .exp-role{font-size:23px}
+
+  .exp-company-row{
+    align-items:flex-start;
+    gap:12px;
+  }
+
+  .exp-company-logo{
+    height:44px;
+    max-width:104px;
+    padding:6px 8px;
+    border-radius:11px;
+  }
+
+  .exp-company-logo img{max-width:84px;max-height:32px}
+}
+
+/* ---------- Small mobile ---------- */
+@media(max-width:390px){
+  .exp-item,
+  .exp-item:nth-of-type(even){padding-left:40px}
+
+  .exp-timeline-svg{left:10px}          /* axis centre = 12px */
+  .exp-node{left:12px;width:16px;height:16px}
+
+  .exp-card{padding:20px}
+  .exp-role{font-size:21px}
+  .exp-company-logo{height:40px;max-width:92px}
+  .exp-company-logo img{max-width:74px;max-height:28px}
+}
+
+/* ---------- Reduced motion ---------- */
+@media(prefers-reduced-motion:reduce){
+  html.exp-js .exp-card,
+  html.exp-js .exp-stage .exp-card,
+  html.exp-js .exp-stage.is-entered .exp-card{
+    opacity:1!important;
+    transform:none!important;
+    transition:none!important;
+    transition-delay:0s!important;
+  }
+  html.exp-js .exp-node,
+  html.exp-js .exp-stage .exp-node,
+  html.exp-js .exp-stage.is-entered .exp-node{
+    opacity:1!important;
+    transform:scale(1)!important;
+    transition:none!important;
+    transition-delay:0s!important;
+  }
+  html.exp-js .exp-line-progress{stroke-dashoffset:0!important}
+  .exp-year{transition:none!important}
+}
+

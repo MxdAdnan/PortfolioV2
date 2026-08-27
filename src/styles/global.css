@@ -1,0 +1,50 @@
+/* ============================================================================
+   GLOBAL ENTRY — the only stylesheet Layout.astro imports.
+
+   Tailwind v4 is loaded UTILITIES-ONLY. Preflight is deliberately not imported:
+   base.css already carries the union of the original 13 per-file resets, and
+   Tailwind's reset would silently change borders, headings and form controls
+   across a page whose whole requirement is "zero visual change".
+
+   The ported portfolio CSS is imported WITHOUT layer(), which leaves it
+   unlayered and therefore higher priority than every Tailwind utility. That is
+   intentional: utilities are available for new markup but can never outrank the
+   existing design.
+   ============================================================================ */
+
+@layer theme, base, components, utilities;
+
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+/* NOTE: 'tailwindcss/preflight.css' is intentionally absent. Do not add it. */
+
+@import './tokens.css';
+@import './base.css';
+
+@import './sections/hero.css';
+@import './sections/impact.css';
+@import './sections/projects.css';
+@import './sections/case-studies.css';
+@import './sections/services.css';
+@import './sections/b2b.css';
+@import './sections/marketing-tools.css';
+@import './sections/experience.css';
+@import './sections/about.css';
+@import './sections/beyond.css';
+@import './sections/cta.css';
+@import './sections/contact.css';
+@import './sections/footer.css';
+/* Must stay last -- it reconciles cross-section conflicts by design. */
+@import './sections/merge-layer.css';
+
+/* Brand tokens exposed to Tailwind utilities (bg-indigo, text-red, ...).
+   These POINT AT the ported variables in tokens.css rather than restating the
+   hex values, so there is exactly one source of truth for every colour. */
+@theme {
+  --color-indigo: var(--indigo);
+  --color-red: var(--red);
+  --color-platinum: var(--platinum);
+  --color-lavender: var(--lavender);
+  --color-flag-red: var(--flag-red);
+  --font-sans: 'Poppins', sans-serif;
+}

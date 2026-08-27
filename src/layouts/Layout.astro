@@ -1,0 +1,60 @@
+---
+/* Head content ported from "Adnan Main Portfolio.html" lines 3-20, order preserved.
+
+   DOM SHAPE — ScrollSmoother requires #smooth-wrapper > #smooth-content, and it
+   applies a transform to #smooth-content. A position:fixed element inside a
+   transformed ancestor is positioned against that ancestor instead of the
+   viewport, so it would scroll away with the page. The six fixed elements in
+   this design therefore render OUTSIDE the wrapper:
+
+     .site-header  .mobile-nav  .cta-modal
+     .fcs-modal    .mobile-sheet  .project-overlay
+
+   The source file already hoists .mobile-sheet out of #projects-overview for the
+   same class of reason (see its comment at line 5782). Verified in the ported
+   CSS that no selector reaches those elements through a section ancestor, so
+   hoisting them changes nothing visually. */
+import '../styles/global.css';
+import SiteHeader from '../components/SiteHeader.astro';
+import MobileNav from '../components/MobileNav.astro';
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Mohammed Adnan — Marketing Executive | Dubai, UAE</title>
+<meta name="description" content="Portfolio of Mohammed Adnan — digital marketing executive in Dubai, UAE. SEO, paid media, social, web development, events and B2B channel marketing.">
+
+<!-- Must run before paint: html.exp-js gates the Experience timeline's
+     pre-animation state. Moving it to the end of <body> would flash the
+     cards visible, then hide them. is:inline keeps it render-blocking here
+     instead of being hoisted into the bundle. -->
+<script is:inline>document.documentElement.classList.add("exp-js");</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- LinkedIn's official badge script (Beyond the Portfolio) -->
+<script is:inline src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+</head>
+<body>
+
+<SiteHeader />
+<MobileNav />
+
+<div id="smooth-wrapper">
+  <div id="smooth-content">
+    <slot />
+  </div>
+</div>
+
+<!-- Fixed-position UI: must stay outside #smooth-content's transform. -->
+<slot name="overlays" />
+
+<script>
+  import '../scripts/boot';
+</script>
+</body>
+</html>

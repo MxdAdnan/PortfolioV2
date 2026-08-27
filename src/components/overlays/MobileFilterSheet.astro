@@ -1,0 +1,26 @@
+---
+/* Markup ported verbatim from "Adnan Main Portfolio.html" lines 5782-5802.
+   Class names, ids and data-* attributes are load-bearing for the ported
+   scripts in src/scripts -- do not rename. */
+---
+<!-- Mobile filter sheet + immersive project detail live outside the
+     Projects section on purpose (that section has overflow:clip, which
+     could clip or mis-stack fixed-position panels on mobile). This also
+     restores a closing section tag that used to be missing here, which
+     had left every later section (Case Studies, Services, B2B, Tools,
+     Experience, About, CTA...) accidentally nested inside Projects. -->
+    <div class="mobile-sheet" id="mobileSheet" aria-hidden="true">
+      <div class="sheet-scrim" id="sheetScrim"></div>
+      <div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+        <div class="sheet-head">
+          <h2 id="sheetTitle">Filter Projects</h2>
+          <button class="sheet-close" id="sheetClose" type="button" aria-label="Close filters">×</button>
+        </div>
+        <div class="filter-group">
+          <h3 class="filter-group__title">Services</h3>
+          <div class="filter-list" id="mobileServiceFilters"></div>
+          <div id="mobileSubFilters"></div>
+        </div>
+        <button class="filters__reset" id="mobileReset" type="button">Reset filters</button>
+      </div>
+    </div>

@@ -1,0 +1,70 @@
+---
+/* Markup ported verbatim from "Adnan Main Portfolio.html" lines 5587-5650.
+   Class names, ids and data-* attributes are load-bearing for the ported
+   scripts in src/scripts -- do not rename. */
+import { withBase } from '../../lib/base';
+---
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" id="hero">
+
+  <!-- LAYER 01 — background lifestyle photograph -->
+  <div class="hero-bg" aria-hidden="true">
+    <!--
+      Replace this src with the real lifestyle photo of Mohammed
+      (working on a laptop, coffee in frame). Recommended: WebP/AVIF,
+      ~1600px wide, subject positioned right-of-centre.
+    -->
+    <img class="hero-bg__img" id="heroBgImg"
+         src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=2200&q=86"
+         alt="" />
+    <div class="hero-bg__wash"></div>
+    <div class="hero-bg__grain"></div>
+  </div>
+
+  <div class="hero-inner">
+
+    <!-- LAYER 02 — left foreground content -->
+    <div class="hero-content">
+      <p class="hero-eyebrow">Digital Marketing · Dubai, UAE</p>
+
+      <h1 class="hero-name" id="heroName">
+        <span class="line-wrap"><span class="line">Mohammed</span></span>
+        <span class="line-wrap"><span class="line accent">Adnan</span></span>
+      </h1>
+
+      <p class="hero-role" id="heroRole">
+        Marketing Executive
+        <span>End-to-end digital strategy, campaigns &amp; growth</span>
+      </p>
+
+      <div class="hero-badge" id="heroBadge">
+        <span class="hero-badge__num"><span>3+</span></span>
+        <span class="hero-badge__text">Years Professional<i>Digital Marketing Experience</i></span>
+      </div>
+    </div>
+
+    <!-- LAYER 03 — right orbital composition -->
+    <div class="hero-orbit-wrap">
+      <div class="hero-orbit" id="heroOrbit">
+
+        <div id="ringsBack"></div>
+
+        <div class="orbit-portrait__glow" aria-hidden="true"></div>
+        <div class="orbit-portrait" id="orbitPortrait">
+          <!-- Mohammed Adnan portrait: embedded directly in this HTML so it works as a standalone file. -->
+          <img id="portraitImg" src={withBase("/assets/portrait-hero.webp")} alt="Mohammed Adnan"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+
+        <div id="iconsLayer"></div>
+        <div id="ringsFront"></div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
